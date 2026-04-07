@@ -1,8 +1,8 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import DetailHero from "../components/DetailHero";
 import ContentRow from "../components/ContentRow";
+import api from "../api";
 
 
 const DetailPage = () => {
@@ -23,20 +23,12 @@ const mediaType =
  useEffect(() => {
   const fetchData = async () => {
     try {
-      const movieRes = await axios.get(
-        `https://api.themoviedb.org/3/${mediaType}/${id}?append_to_response=videos,credits`,
-        {
-          params: {
-            api_key: import.meta.env.VITE_API_KEY,
-          },
-        }
+      const movieRes = await api.get(
+        `/${mediaType}/${id}?append_to_response=videos,credits`,
       );
 
-      const similarRes = await axios.get(
-        `https://api.themoviedb.org/3/${mediaType}/${id}/similar`,
-        {
-          params: { api_key: import.meta.env.VITE_API_KEY },
-        }
+      const similarRes = await api.get(
+        `/${mediaType}/${id}/similar`,
       );
 
       setDetail(movieRes.data);

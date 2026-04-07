@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Banner from "../components/Banner";
-import axios from "axios";
 import ContentRow from "../components/ContentRow";
 import Loading from "../components/Loading";
+import api from "../api";
 
 const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -15,26 +15,10 @@ const Home = () => {
     const fetchLists = async () => {
       try {
         const [tm, trm, ts, trs] = await Promise.allSettled([
-          axios.get("https://api.themoviedb.org/3/discover/movie", {
-            params: {
-              api_key: import.meta.env.VITE_API_KEY,
-            },
-          }),
-          axios.get("https://api.themoviedb.org/3/movie/top_rated", {
-            params: {
-              api_key: import.meta.env.VITE_API_KEY,
-            },
-          }),
-          axios.get("https://api.themoviedb.org/3/discover/tv", {
-            params: {
-              api_key: import.meta.env.VITE_API_KEY,
-            },
-          }),
-          axios.get("https://api.themoviedb.org/3/tv/top_rated", {
-            params: {
-              api_key: import.meta.env.VITE_API_KEY,
-            },
-          }),
+          api.get("/discover/movie"),
+          api.get("/movie/top_rated"),
+          api.get("/discover/tv"),
+          api.get("/tv/top_rated"),
         ]);
         console.log(tm.value.data.results);
         console.log(trm.value.data);

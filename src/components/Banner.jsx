@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import { MdClose } from "react-icons/md";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import api from "../api";
 
 const Banner = ({ data}) => {
   const [index, setIndex] = useState(0);
@@ -26,9 +26,8 @@ useEffect(() => {
   if (!movie?.id) return
 
   const fetchTrailer = async () => {
-    const res = await axios.get(
-      `https://api.themoviedb.org/3/movie/${movie.id}/videos`,
-      { params: { api_key: import.meta.env.VITE_API_KEY } }
+    const res = await api.get(
+      `/movie/${movie.id}/videos`
     )
     const yt = res.data.results.find(v => v.type === "Trailer" && v.site === "YouTube")
     setTrailer(yt || null)

@@ -1,22 +1,16 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 
 import Card from "../components/Card";
 import Loading from "../components/Loading";
+import api from "../api";
 
 const TvSeries = () => {
   const [tvSeries, setTvSeries] = useState([]);
-  const [genreMap, setGenreMap] = useState({});
 
   useEffect(() => {
     const fetchTvSeries = async () => {
-      const res = await axios.get(
-        "https://api.themoviedb.org/3/discover/tv",
-        {
-          params: {
-            api_key: import.meta.env.VITE_API_KEY,
-          },
-        },
+      const res = await api.get(
+        "/discover/tv",
       );
       const result = res.data.results.map(item=> ({
         ...item,

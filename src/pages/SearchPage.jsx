@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import Loading from '../components/Loading'
 import Card from '../components/Card'
+import api from '../api'
 
 const SearchPage = () => {
     const [searchParams] = useSearchParams()
@@ -13,8 +14,8 @@ const SearchPage = () => {
 
     useEffect(() => {
   if (!query) return
-  axios.get("https://api.themoviedb.org/3/search/multi", {
-    params: { api_key: import.meta.env.VITE_API_KEY, query: query }
+  api.get("/search/multi", {
+    params: { query: query }
   }).then(res => setMovies(res.data.results))  // yeh missing tha
 }, [query])
 

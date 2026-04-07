@@ -1,21 +1,16 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 
 import Card from "../components/Card";
 import Loading from "../components/Loading";
+import api from "../api";
 
 const Movie = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const res = await axios.get(
-        "https://api.themoviedb.org/3/discover/movie",
-        {
-          params: {
-            api_key: import.meta.env.VITE_API_KEY,
-          },
-        },
+      const res = await api.get(
+        "/discover/movie",
       );
 
       const result = res.data.results.map(item=> ({
