@@ -1,10 +1,18 @@
 import React from "react";
 import { CiHeart, CiSearch } from "react-icons/ci";
-import { FaUser } from "react-icons/fa";
+import { FaHeart, FaUser } from "react-icons/fa";
 import { SiThemoviedatabase } from "react-icons/si";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate()
+  const handleSearch=(e)=>{
+    if(e.key === "Enter" && e.target.value.trim()){
+      navigate(`search?q=${e.target.value}`)
+    }
+  }
+  
+  
   return (
     <div className="bg-zinc-800 fixed h-16 top-0 left-0 right-0 z-10">
       <div
@@ -21,6 +29,7 @@ const Header = () => {
           <div className="flex items-center bg-white/10  rounded-full px-3 py-2 border border-gray-600 w-full max-w-96  md:gap-2  ml-2 focus-within:ring-2 focus-within:ring-red-500">
             <CiSearch className="text-gray-400 text-xl" />
             <input
+            onKeyDown={handleSearch}
               type="text"
               placeholder="Search movies..."
               className="w-full bg-transparent outline-none  ml-1 text-white "
@@ -32,7 +41,7 @@ const Header = () => {
            transition duration-200 ${isActive? "text-red-500 underline"  : "text-white hover:text-red-400"}`}>
             Home
           </NavLink>
-          <NavLink to={"/movies"} className={({isActive})=>`
+          <NavLink to={"/movie"} className={({isActive})=>`
             transition duration-200 ${isActive? "text-red-500 underline" : "text-white hover:text-red-400"}`}>
             Movies
           </NavLink>
@@ -41,8 +50,13 @@ const Header = () => {
             TV Series
           </NavLink>
 
-          <CiHeart className="text-2xl text-white hover:text-red-500 cursor-pointer" />
-          <FaUser className=" text-white hover:text-red-500 cursor-pointer" />
+
+          <NavLink to={"/profile"}>
+            {({isActive})=>
+              <FaUser className={`text-xl cursor-pointer ${isActive? "text-red-500" : "text-white hover:text-red-500"}`}
+            />
+            }
+          </NavLink>
         </div>
       </div>
     </div>

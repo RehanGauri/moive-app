@@ -4,7 +4,10 @@ import Movie from "./pages/Movie";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import TvSeries from "./pages/TvSeries";
-import WatchList from "./pages/WatchList";
+import Profile from "./pages/Profile";
+import MovieDetail from "./pages/DetailPage";
+import DetailPage from "./pages/DetailPage";
+import SearchPage from "./pages/SearchPage";
 
 const App = () => {
   return (
@@ -12,9 +15,11 @@ const App = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movie />} />
+        <Route path="/movie" element={<Movie />} />
         <Route path="/tv-series" element={<TvSeries />} />
-        <Route path="/watchlist" element={<WatchList />} />
+        <Route path="/:type/:id" element={<DetailPage />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/search" element={<SearchPage />} />
       </Routes>
     </div>
   );

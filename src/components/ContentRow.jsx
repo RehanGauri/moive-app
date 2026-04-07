@@ -2,9 +2,9 @@ import React from "react";
 import Card from "./Card";
 import Button from "./Button";
 
-const ContentRow = ({ data, title }) => {
+const ContentRow = ({ data, title, viewAllBtn=true }) => {
   return (
-    <div className="text-white px-4 my-6 lg:w-9/12  mx-auto">
+    <div className="text-white px-4 my-6 lg:w-9/12  mx-auto ">
 
         <div className="flex justify-between">
             <div className="relative mb-4">
@@ -13,7 +13,7 @@ const ContentRow = ({ data, title }) => {
             </div>
 
           
-          <Button text={"View All"} classname={"border h-9 px-6 text-sm"} />
+          {viewAllBtn?<Button text={"View All"} classname={"border h-9 px-6 text-sm"} />: "" }
         </div>
 
         <div className="flex gap-3 overflow-x-auto [&::-webkit-scrollbar]:hidden">

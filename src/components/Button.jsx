@@ -1,8 +1,10 @@
 import React from 'react'
 
-const Button = ({text, classname=""}) => {
+const Button = ({text, classname="", onClick}) => {
   return (
-    <button className={`px-3 rounded-full py-1.5 cursor-pointer hover:scale-105 transition duration-200 montserrat ${classname}`} >
+    <button 
+    onClick={onClick}
+    className={`px-3 rounded-full py-1.5 cursor-pointer hover:scale-105 transition duration-200 montserrat ${classname}`} >
         {text}
     </button>
   )
