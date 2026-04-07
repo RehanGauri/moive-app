@@ -11,7 +11,6 @@ const Card = ({ item }) => {
     name,
     genres,
     poster_path,
-    backdrop_path,
     vote_average,
     genre_ids,
     release_date,
