@@ -2,7 +2,6 @@
 
 A Netflix-inspired movie & TV show discovery app built with **React** — explore trending content, search anything, watch trailers, and save favorites to your personal watchlist.
 
-![StreamFlix Banner](https://via.placeholder.com/900x400/18181b/ef4444?text=StreamFlix)
 
 ## 🚀 Live Demo
 👉 https://movie-app-rehan.vercel.app/
