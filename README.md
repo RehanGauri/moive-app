@@ -1,16 +1,31 @@
-# React + Vite
+# 🎬 StreamFlix
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Netflix-inspired movie & TV show discovery app built with **React** — explore trending content, search anything, watch trailers, and save favorites to your personal watchlist.
 
-Currently, two official plugins are available:
+![StreamFlix Banner](https://via.placeholder.com/900x400/18181b/ef4444?text=StreamFlix)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Live Demo
+👉 https://movie-app-rehan.vercel.app/
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- 🔥 **Trending** — Browse trending movies & TV shows updated daily
+- 🎬 **Movie & TV Pages** — Top rated, popular, upcoming content
+- 🔍 **Debounced Search** — Real-time search powered by TMDB with 500ms debounce
+- 🎞️ **Trailers** — Watch official trailers directly in the app
+- ❤️ **Watchlist** — Save & manage your liked movies and shows
+- 📱 **Responsive** — Fully mobile-friendly with hamburger nav
+- 🌐 **Express Proxy** — Custom backend to bypass regional TMDB restrictions
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠️ Tech Stack
+
+| Frontend | Styling | API | Other |
+|----------|---------|-----|-------|
+| React 18 | Tailwind CSS | TMDB API | Axios |
+| React Router v6 | — | Express Proxy | React Icons |
+
+---
